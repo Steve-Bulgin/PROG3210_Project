@@ -22,3 +22,11 @@
 - ~~Activities~~
 - Find Icon for Launcher
 - Newsreader Logic
+- ~~Fix glitch where app launcher is grabbing title of main action bar~~
+
+I've jimmed in Murach newsreader code just to see it work.
+
+- Figure out graceful way to handle multiple feeds
+- Add settings to setting view for selecting sources
+- main listview
+

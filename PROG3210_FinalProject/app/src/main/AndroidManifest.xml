@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  FileName: AndroidManifest.xml
+  Purpose: Purpose
+  Revision History
+           Steven Bulgin, 2016.11.30: Created
+           Steven Bulgin, 2016.11.30: Added permission for internet
+           Steven Bulgin, 2016.12.01: Added label to intent to stop launcher from grabbing
+                the name of the main activity.
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.github.steve_bulgin.prog3210_finalproject">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,7 +21,7 @@
         android:theme="@style/AppTheme"
         >
         <activity android:name=".MainActivity" android:label="Main">
-            <intent-filter>
+            <intent-filter android:label="Newsreader">
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
