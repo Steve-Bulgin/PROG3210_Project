@@ -1,13 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000">
 
-    <TextView
+    <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Settings View"
-        android:id="@+id/textView"
-        android:textColor="#FFFFFF" />
-</LinearLayout>
+        android:text="CTV News"
+
+        android:id="@+id/switch_ctv"
+        android:textColor="#FFF"
+        android:layout_marginTop="29dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/switch_cnn" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CBC News"
+
+        android:id="@+id/switch_cbc"
+        android:textColor="#FFF"
+        android:layout_below="@+id/switch_ctv"
+        android:layout_marginTop="29dp" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Global News"
+
+        android:id="@+id/switch_global"
+        android:textColor="#FFF"
+        android:layout_below="@+id/switch_cbc"
+        android:layout_marginTop="29dp" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CNN News"
+        android:id="@+id/switch_cnn"
+        android:textColor="#FFF"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/switch_global"
+        android:layout_alignParentStart="true" />
+
+
+
+</RelativeLayout>
