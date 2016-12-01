@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  FileName: main_spillover_menu_menu.xml
+  Purpose: Spillover menu items
+  Revision History
+   		Steven Bulgin, 2016.11.30: Created
+-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="schemas.android.com/tools"
+    tools:context="io.github.steve_bulgin.prog3210_finalproject"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_settings"
+        android:title="Settings"
+        app:showAsAction="never" />
+    <item android:id="@+id/menu_about"
+        android:title="About"
+        app:showAsAction="never" />
+</menu>
