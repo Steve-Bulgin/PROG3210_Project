@@ -22,3 +22,5 @@
 - ~~Activities~~
 - Find Icon for Launcher
 - Newsreader Logic
+- ~~Shared Prefrences~~ (Only the CNN switc is set up with a toast to show it's state in both the main and the settings, but they all work and retain their values)
+- ~~Settings Switches~~
