@@ -5,8 +5,8 @@
 2016.11.08
 
 
-- ~~Proposal~~
-- Everything
+- [x] Proposal
+- [ ] Everything
 
 2016.11.24
 
@@ -18,9 +18,10 @@
 
 ## To Do
 
-- ~~Spill over menus~~
-- ~~Activities~~
-- Find Icon for Launcher
-- Newsreader Logic
-- ~~Shared Prefrences~~ (Only the CNN switc is set up with a toast to show it's state in both the main and the settings, but they all work and retain their values)
-- ~~Settings Switches~~
+- [x] Spill over menus
+- [x] Activities
+- [x] Find Icon for Launcher
+- [ ] Newsreader Logic
+- [ ] Notifications
+- [x] Shared Prefrences (Only the CNN switc is set up with a toast to show it's state in both the main and the settings, but they all work and retain their values)
+- [x] Settings Switches
