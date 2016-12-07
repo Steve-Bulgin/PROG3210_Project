@@ -25,3 +25,12 @@
 - [ ] Notifications
 - [x] Shared Prefrences (Only the CNN switc is set up with a toast to show it's state in both the main and the settings, but they all work and retain their values)
 - [x] Settings Switches
+
+
+I've jimmed in Murach newsreader code just to see it work.
+
+- Figure out graceful way to handle multiple feeds
+- Add settings to setting view for selecting sources
+- main listview
+
+

@@ -21,11 +21,9 @@
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"/> -->
 
-    <TextView
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:textColor="#FFFFFF"
-
+        android:id="@+id/listViewNews"
         android:layout_alignParentStart="true" />
 </RelativeLayout>
