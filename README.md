@@ -1,5 +1,7 @@
 # PROG3210_Project
 
+![screencap](/screencaps/NR.png)
+
 ## To Do
 
 2016.11.08
@@ -22,8 +24,11 @@
 - [x] Activities
 - [x] Find Icon for Launcher
 - [ ] Newsreader Logic
+    - [x] Base news reader
+    - [ ] Switch feeds
+    - [ ] Multiple feeds
 - [ ] Notifications
-- [x] Shared Prefrences (Only the CNN switc is set up with a toast to show it's state in both the main and the settings, but they all work and retain their values)
+- [x] Shared Prefrences (Only the CNN switch is set up with a toast to show it's state in both the main and the settings, but they all work and retain their values)
 - [x] Settings Switches
 
 
