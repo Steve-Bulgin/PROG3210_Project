@@ -18,7 +18,7 @@ import javax.xml.parsers.SAXParserFactory;
 
 public class FileIO {
 
-    private final String URL_STRING = "http://rss.cnn.com/rss/cnn_tech.rss";
+    private final String URL_STRING = "http://rss.cnn.com/rss/cnn_topstories.rss";
     private final String FILENAME = "news_feed.xml";
     private Context context = null;
 

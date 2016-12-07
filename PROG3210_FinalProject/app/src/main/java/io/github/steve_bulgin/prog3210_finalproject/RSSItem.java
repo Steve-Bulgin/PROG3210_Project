@@ -6,6 +6,7 @@ import java.util.Date;
 
 public class RSSItem {
 
+
     private String title = null;
     private String description = null;
     private String link = null;
@@ -16,6 +17,8 @@ public class RSSItem {
 
     private SimpleDateFormat dateInFormat =
             new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss Z");
+
+
 
     public void setTitle(String title)     {
         this.title = title;
