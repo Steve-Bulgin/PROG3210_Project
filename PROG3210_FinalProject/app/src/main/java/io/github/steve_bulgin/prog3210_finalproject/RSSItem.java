@@ -1,5 +1,7 @@
 package io.github.steve_bulgin.prog3210_finalproject;
 
+import android.util.Log;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -65,6 +67,7 @@ public class RSSItem {
         try {
             Date date = dateInFormat.parse(pubDate.trim());
             String pubDateFormatted = dateOutFormat.format(date);
+            Log.d("Date", pubDateFormatted.toString());
             return pubDateFormatted;
         }
         catch (ParseException e) {

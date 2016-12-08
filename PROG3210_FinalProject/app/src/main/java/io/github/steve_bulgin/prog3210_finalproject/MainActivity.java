@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedpreferences;
     private static final String pref_file = "pref_file";
     private RSSFeed feed;
+    private ArrayList<RSSFeed> feeds;
     private FileIO io;
     private ListView listViewNews;
 
@@ -40,17 +41,18 @@ public class MainActivity extends AppCompatActivity {
         listViewNews = (ListView) findViewById(R.id.listViewNews);
         //lstNews.setOnClickListener(this);
 
+
         io = new FileIO(getApplicationContext());
         new DownloadFeed().execute();
 
-        sharedpreferences = getSharedPreferences(pref_file, Context.MODE_PRIVATE);
-
-        if (sharedpreferences.getBoolean("cnn_news", true)) {
-            Toast.makeText(getApplicationContext(), "CNN ON", Toast.LENGTH_SHORT).show();
-        }
-        else if (!sharedpreferences.getBoolean("cnn_news", false)) {
-            Toast.makeText(getApplicationContext(), "CNN OFF", Toast.LENGTH_SHORT).show();
-        }
+//        sharedpreferences = getSharedPreferences(pref_file, Context.MODE_PRIVATE);
+//
+//        if (sharedpreferences.getBoolean("cnn_news", true)) {
+//            Toast.makeText(getApplicationContext(), "CNN ON", Toast.LENGTH_SHORT).show();
+//        }
+//        else if (!sharedpreferences.getBoolean("cnn_news", false)) {
+//            Toast.makeText(getApplicationContext(), "CNN OFF", Toast.LENGTH_SHORT).show();
+//        }
 
     }
 
@@ -92,7 +94,8 @@ public class MainActivity extends AppCompatActivity {
     class ReadFeed extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... params) {
-            feed = io.readFile();
+            //return arraylist from readFile
+            feeds = io.readFile();
             return null;
         }
 
@@ -106,22 +109,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateDisplay() {
-        if (feed == null) {
+        if (feeds == null) {
             Toast.makeText(getApplicationContext(), "Feed is null", Toast.LENGTH_SHORT).show();
         }
 
-        ArrayList<RSSItem> items = feed.getAllItems();
-
-        // create a List of Map<String, ?> objects
         ArrayList<HashMap<String, String>> data =
                 new ArrayList<HashMap<String, String>>();
-        for (RSSItem item : items) {
-            HashMap<String, String> map = new HashMap<String, String>();
-            map.put("source", "CNN");
-            map.put("date", "2011.01.11"); //map.put("date", item.getPubDateFormatted());
-            map.put("title", item.getTitle());
-            data.add(map);
+
+        for (int i = 0; i < feeds.size(); ++i) {
+            feed = feeds.get(i);
+            ArrayList<RSSItem> items = feed.getAllItems();
+
+            // create a List of Map<String, ?> objects
+
+            for (RSSItem item : items) {
+                HashMap<String, String> map = new HashMap<String, String>();
+                map.put("source", feed.getSource());
+                map.put("date", "2011.01.11"); //map.put("date", item.getPubDateFormatted());
+                map.put("title", item.getTitle());
+                data.add(map);
+            }
         }
+
+
 
         // create the resource, from, and to variables
         int resource = R.layout.news_list;

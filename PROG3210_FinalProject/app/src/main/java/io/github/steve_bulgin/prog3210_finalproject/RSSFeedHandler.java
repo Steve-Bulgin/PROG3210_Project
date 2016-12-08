@@ -1,5 +1,7 @@
 package io.github.steve_bulgin.prog3210_finalproject;
 
+import android.util.Log;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -66,6 +68,7 @@ public class RSSFeedHandler extends DefaultHandler {
         if (isTitle) {
             if (feedTitleHasBeenRead == false) {
                 feed.setTitle(s);
+                item.setSource(feed.getSource());
                 feedTitleHasBeenRead = true;
             }
             else {
@@ -84,6 +87,7 @@ public class RSSFeedHandler extends DefaultHandler {
         else if (isPubDate) {
             if (feedPubDateHasBeenRead == false) {
                 feed.setPubDate(s);
+                Log.d("Date", feed.getPubDate());
                 feedPubDateHasBeenRead = true;
             }
             else {

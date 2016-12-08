@@ -14,6 +14,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -21,16 +22,19 @@ import javax.xml.parsers.SAXParserFactory;
 public class FileIO {
 
 
-    private final String URL_STRING = "http://rss.cnn.com/rss/cnn_topstories.rss";
-    private final String FILENAME = "news_feed.xml";
+    private ArrayList<RSSFeed> feeds = new ArrayList<>();
     private Context context = null;
 
     public FileIO(Context context) {
         this.context = context;
     }
 
+
+
     public void downloadFile() {
+
         SharedPreferences sharedpreferences = context.getSharedPreferences("pref_file", Context.MODE_PRIVATE);
+
         try{
             //cnn file maker
             if (sharedpreferences.getBoolean("cnn_news", true)) {
@@ -127,28 +131,100 @@ public class FileIO {
         }
     }
 
-    public RSSFeed readFile() {
+    public ArrayList<RSSFeed> readFile() {
+
+        SharedPreferences sharedpreferences = context.getSharedPreferences("pref_file", Context.MODE_PRIVATE);
+
         try {
-            // get the XML reader
-            SAXParserFactory factory = SAXParserFactory.newInstance();
-            SAXParser parser = factory.newSAXParser();
-            XMLReader xmlreader = parser.getXMLReader();
+            if (sharedpreferences.getBoolean("cnn_news", true)) {
+                // get the XML reader
+                SAXParserFactory factory = SAXParserFactory.newInstance();
+                SAXParser parser = factory.newSAXParser();
+                XMLReader xmlreader = parser.getXMLReader();
 
-            // set content handler
-            RSSFeedHandler theRssHandler = new RSSFeedHandler();
-            xmlreader.setContentHandler(theRssHandler);
+                // set content handler
+                RSSFeedHandler theRssHandler = new RSSFeedHandler();
+                xmlreader.setContentHandler(theRssHandler);
 
-            // read the file from internal storage
-            FileInputStream in = context.openFileInput("GLOBAL");
+                // read the file from internal storage
+                FileInputStream in = context.openFileInput("CNN");
 
-            // parse the data
-            InputSource is = new InputSource(in);
-            xmlreader.parse(is);
+                // parse the data
+                InputSource is = new InputSource(in);
+                xmlreader.parse(is);
 
-            // set the feed in the activity
-            RSSFeed feed = theRssHandler.getFeed();
-            feed.setSource();
-            return feed;
+                // set the feed in the activity
+                RSSFeed cnn_feed = theRssHandler.getFeed();
+                cnn_feed.setSource("CNN");
+                feeds.add(cnn_feed);
+            }
+            if (sharedpreferences.getBoolean("ctv_news", true)) {
+                // get the XML reader
+                SAXParserFactory factory = SAXParserFactory.newInstance();
+                SAXParser parser = factory.newSAXParser();
+                XMLReader xmlreader = parser.getXMLReader();
+
+                // set content handler
+                RSSFeedHandler theRssHandler = new RSSFeedHandler();
+                xmlreader.setContentHandler(theRssHandler);
+
+                // read the file from internal storage
+                FileInputStream in = context.openFileInput("CTV");
+
+                // parse the data
+                InputSource is = new InputSource(in);
+                xmlreader.parse(is);
+
+                // set the feed in the activity
+                RSSFeed ctv_feed = theRssHandler.getFeed();
+                ctv_feed.setSource("CTV");
+                feeds.add(ctv_feed);
+            }
+            if (sharedpreferences.getBoolean("cbc_news", true)) {
+                // get the XML reader
+                SAXParserFactory factory = SAXParserFactory.newInstance();
+                SAXParser parser = factory.newSAXParser();
+                XMLReader xmlreader = parser.getXMLReader();
+
+                // set content handler
+                RSSFeedHandler theRssHandler = new RSSFeedHandler();
+                xmlreader.setContentHandler(theRssHandler);
+
+                // read the file from internal storage
+                FileInputStream in = context.openFileInput("CBC");
+
+                // parse the data
+                InputSource is = new InputSource(in);
+                xmlreader.parse(is);
+
+                // set the feed in the activity
+                RSSFeed cbc_feed = theRssHandler.getFeed();
+                cbc_feed.setSource("CBC");
+                feeds.add(cbc_feed);
+            }
+            if (sharedpreferences.getBoolean("global_news", true)) {
+                // get the XML reader
+                SAXParserFactory factory = SAXParserFactory.newInstance();
+                SAXParser parser = factory.newSAXParser();
+                XMLReader xmlreader = parser.getXMLReader();
+
+                // set content handler
+                RSSFeedHandler theRssHandler = new RSSFeedHandler();
+                xmlreader.setContentHandler(theRssHandler);
+
+                // read the file from internal storage
+                FileInputStream in = context.openFileInput("GLOBAL");
+
+                // parse the data
+                InputSource is = new InputSource(in);
+                xmlreader.parse(is);
+
+                // set the feed in the activity
+                RSSFeed global_feed = theRssHandler.getFeed();
+                global_feed.setSource("GLOBAL");
+                feeds.add(global_feed);
+            }
+            return feeds;
         }
         catch (Exception e) {
             Log.e("News reader", e.toString());
