@@ -2,12 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000">
+    android:background="@drawable/box"
+    android:layout_marginTop="10dp"
+    >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Source"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
         android:id="@+id/lblSource"
         android:textColor="#FFF"
         android:singleLine="false" />
@@ -16,6 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Date"
+        android:layout_marginLeft="5dp"
         android:id="@+id/lblPubDate"
         android:textColor="#FFF" />
 
@@ -24,6 +29,9 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Headline"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
         android:id="@+id/lblHeadline"
         android:textColor="#FFF" />
 </LinearLayout>
