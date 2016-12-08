@@ -28,9 +28,11 @@
     - [x] Switch feeds
     - [x] Multiple feeds
     - [ ] Date/Time parsing for different formats off the feeds
-    - [ ] Add click events and item views to the news items
+    - [x] Add click events and item views to the news items
     - [x] Add border and margin between news items
     - [x] Fix styles in listview
+    - [x] Toss to item activity
+- [ ] Set Item activity to display info
 - [ ] Notifications
 - [x] Shared Prefrences (Only the CNN switch is set up with a toast to show it's state in both the main and the settings, but they all work and retain their values)
 - [x] Settings Switches

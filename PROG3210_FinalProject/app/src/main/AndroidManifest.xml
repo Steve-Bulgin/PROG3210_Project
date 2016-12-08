@@ -31,6 +31,8 @@
         </activity>
         <activity android:name="io.github.steve_bulgin.prog3210_finalproject.AboutActivity" android:label="About">
         </activity>
+        <activity android:name="io.github.steve_bulgin.prog3210_finalproject.ItemActivity" android:label="News Item">
+        </activity>
     </application>
 
 </manifest>

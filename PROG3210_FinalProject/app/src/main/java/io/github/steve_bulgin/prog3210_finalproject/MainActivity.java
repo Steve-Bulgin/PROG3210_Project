@@ -13,11 +13,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Toast;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<RSSFeed> feeds;
     private FileIO io;
     private ListView listViewNews;
+    private HashMap items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,24 @@ public class MainActivity extends AppCompatActivity {
 //        else if (!sharedpreferences.getBoolean("cnn_news", false)) {
 //            Toast.makeText(getApplicationContext(), "CNN OFF", Toast.LENGTH_SHORT).show();
 //        }
+
+        listViewNews.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                items = (HashMap) listViewNews.getItemAtPosition(position);
+
+                RSSItem item = feed.getItem(position);
+
+                Intent intent = new Intent(view.getContext(), ItemActivity.class);
+
+                intent.putExtra("source", items.get("source").toString());
+                intent.putExtra("pubdate", item.getPubDate());
+                intent.putExtra("title", item.getTitle());
+                intent.putExtra("description", item.getDescription());
+                intent.putExtra("link", item.getLink());
+                startActivity(intent);
+            }
+        });
 
     }
 
