@@ -9,6 +9,7 @@ public class RSSFeed {
 
     private String title = null;
     private String pubDate = null;
+    private String source = null;
     private ArrayList<RSSItem> items;
 
     private SimpleDateFormat dateInFormat =
@@ -16,6 +17,14 @@ public class RSSFeed {
 
     public RSSFeed() {
         items = new ArrayList<RSSItem>();
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public String getSource() {
+        return source;
     }
 
     public void setTitle(String title) {

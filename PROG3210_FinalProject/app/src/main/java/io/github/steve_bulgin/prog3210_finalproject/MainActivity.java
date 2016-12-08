@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         for (RSSItem item : items) {
             HashMap<String, String> map = new HashMap<String, String>();
             map.put("source", "CNN");
-            map.put("date", item.getPubDateFormatted());
+            map.put("date", "2011.01.11"); //map.put("date", item.getPubDateFormatted());
             map.put("title", item.getTitle());
             data.add(map);
         }

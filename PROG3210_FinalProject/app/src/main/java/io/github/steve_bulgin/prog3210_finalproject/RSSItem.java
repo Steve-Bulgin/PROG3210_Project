@@ -11,6 +11,7 @@ public class RSSItem {
     private String description = null;
     private String link = null;
     private String pubDate = null;
+    private String source = null;
 
     private SimpleDateFormat dateOutFormat =
             new SimpleDateFormat("EEEE h:mm a (MMM d)");
@@ -19,6 +20,14 @@ public class RSSItem {
             new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss Z");
 
 
+
+    public void setSource(String source)     {
+        this.source = source;
+    }
+
+    public String getSource() {
+        return source;
+    }
 
     public void setTitle(String title)     {
         this.title = title;
