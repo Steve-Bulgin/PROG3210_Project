@@ -18,7 +18,11 @@ import android.widget.AdapterView;
 import android.widget.Toast;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -66,10 +70,25 @@ public class MainActivity extends AppCompatActivity {
 
                 RSSItem item = feed.getItem(position);
 
+                //Date parsing
+                Date date = new Date();
+                DateFormat outputFormat = new SimpleDateFormat("yyyy.MM.dd (HH:mm)");
+                DateFormat inputFormat = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
+
+                String inputText = feed.getPubDate();
+
+
+                try {
+                    date = inputFormat.parse(inputText);
+                } catch (Exception e) {
+                    Log.d("Date Parser", e.getMessage());
+                }
+                String dateOutput = outputFormat.format(date);
+
                 Intent intent = new Intent(view.getContext(), ItemActivity.class);
 
                 intent.putExtra("source", items.get("source").toString());
-                intent.putExtra("pubdate", item.getPubDate());
+                intent.putExtra("pubdate", dateOutput);
                 intent.putExtra("title", item.getTitle());
                 intent.putExtra("description", item.getDescription());
                 intent.putExtra("link", item.getLink());
@@ -143,12 +162,26 @@ public class MainActivity extends AppCompatActivity {
             feed = feeds.get(i);
             ArrayList<RSSItem> items = feed.getAllItems();
 
-            // create a List of Map<String, ?> objects
+            //Date parsing
+            Date date = new Date();
+            DateFormat outputFormat = new SimpleDateFormat("yyyy.MM.dd (HH:mm)");
+            DateFormat inputFormat = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
+
+            String inputText = feed.getPubDate();
+
+
+            try {
+                date = inputFormat.parse(inputText);
+            } catch (Exception e) {
+                Log.d("Date Parser", e.getMessage());
+            }
+            String dateOutput = outputFormat.format(date);
+
 
             for (RSSItem item : items) {
                 HashMap<String, String> map = new HashMap<String, String>();
                 map.put("source", feed.getSource());
-                map.put("date", "2011.01.11"); //map.put("date", item.getPubDateFormatted());
+                map.put("date", dateOutput); //map.put("date", item.getPubDateFormatted());
                 map.put("title", item.getTitle());
                 data.add(map);
             }
