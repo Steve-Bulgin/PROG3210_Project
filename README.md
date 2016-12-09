@@ -31,6 +31,7 @@
     - [x] Parse date out in the Main activity
     - [ ] **The description for the CBC isn't being parsed out and the has some extra xml that gets passed in with the description to clear up**
         - [ ] CBC and Global feeds have html code in the description. FINE NEW FEEDS!!!
+                BBC (http://feeds.bbci.co.uk/news/rss.xml)
     - [x] Add click events and item views to the news items
     - [x] Add border and margin between news items
     - [x] Fix styles in listview
