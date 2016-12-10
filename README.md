@@ -1,6 +1,13 @@
 # PROG3210_Project
 
-![screencap](/screencaps/NR_update.png)
+![Main](/screencaps/main.png)
+Main
+
+![News Item](/screencaps/news_item.png)
+News Item
+
+![News Item](/screencaps/browser_launch.png)
+Browser Launch
 
 ## To Do
 
@@ -29,7 +36,8 @@
     - [x] Multiple feeds
     - [x] Date/Time parsing for different formats off the feeds
     - [x] Parse date out in the Main activity
-    - [ ] **The description for the CBC isn't being parsed out and the has some extra xml that gets passed in with the description to clear up**
+    - [x] ~~The description for the CBC isn't being parsed out and the has some extra xml that gets passed in with the description to clear up~~ (Switched feeds)
+    - [ ] Escape strings for special characters
     - [x] Add click events and item views to the news items
     - [x] Add border and margin between news items
     - [x] Fix styles in listview
