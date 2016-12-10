@@ -59,52 +59,52 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-        Switch cbc = (Switch) findViewById(R.id.switch_cbc);
+        Switch bbc = (Switch) findViewById(R.id.switch_bbc);
 
-        if (sharedpreferences.getBoolean("cbc_news", true)) {
-            cbc.setChecked(true);
+        if (sharedpreferences.getBoolean("bbc_news", true)) {
+            bbc.setChecked(true);
         }
-        else if (sharedpreferences.getBoolean("cbc_news", false)) {
-            cbc.setChecked(false);
+        else if (sharedpreferences.getBoolean("bbc_news", false)) {
+            bbc.setChecked(false);
         }
 
-        cbc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        bbc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                 SharedPreferences.Editor editor = sharedpreferences.edit();
 
                 if (isChecked) {
-                    editor.putBoolean("cbc_news", true);
+                    editor.putBoolean("bbc_news", true);
                 }
                 else if (!isChecked) {
-                    editor.putBoolean("cbc_news", false);
+                    editor.putBoolean("bbc_news", false);
                 }
 
                 editor.commit();
             }
         });
 
-        Switch global = (Switch) findViewById(R.id.switch_global);
+        Switch cbs = (Switch) findViewById(R.id.switch_cbs);
 
-        if (sharedpreferences.getBoolean("global_news", true)) {
-            global.setChecked(true);
+        if (sharedpreferences.getBoolean("cbs_news", true)) {
+            cbs.setChecked(true);
         }
-        else if (sharedpreferences.getBoolean("global_news", false)) {
-            global.setChecked(false);
+        else if (sharedpreferences.getBoolean("cbs_news", false)) {
+            cbs.setChecked(false);
         }
 
-        global.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        cbs.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                 SharedPreferences.Editor editor = sharedpreferences.edit();
 
                 if (isChecked) {
-                    editor.putBoolean("global_news", true);
+                    editor.putBoolean("cbs_news", true);
                 }
                 else if (!isChecked) {
-                    editor.putBoolean("global_news", false);
+                    editor.putBoolean("cbs_news", false);
                 }
 
                 editor.commit();

@@ -19,9 +19,9 @@
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CBC News"
+        android:text="BBC News"
 
-        android:id="@+id/switch_cbc"
+        android:id="@+id/switch_bbc"
         android:textColor="#FFF"
         android:layout_below="@+id/switch_ctv"
         android:layout_marginTop="29dp" />
@@ -29,12 +29,13 @@
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Global News"
+        android:text="CBS News"
 
-        android:id="@+id/switch_global"
+        android:id="@+id/switch_cbs"
         android:textColor="#FFF"
-        android:layout_below="@+id/switch_cbc"
-        android:layout_marginTop="29dp" />
+        android:layout_below="@+id/switch_bbc"
+        android:layout_marginTop="29dp"
+        android:checked="false" />
 
     <Switch
         android:layout_width="wrap_content"
@@ -43,7 +44,7 @@
         android:id="@+id/switch_cnn"
         android:textColor="#FFF"
         android:layout_marginTop="29dp"
-        android:layout_below="@+id/switch_global"
+        android:layout_below="@+id/switch_cbs"
         android:layout_alignParentStart="true" />
 
 

@@ -81,15 +81,15 @@ public class FileIO {
                 in.close();
             }
             //cbc file maker
-            if (sharedpreferences.getBoolean("cbc_news", true)) {
-                URL url = new URL("http://www.cbc.ca/cmlink/rss-topstories");
+            if (sharedpreferences.getBoolean("bbc_news", true)) {
+                URL url = new URL("http://feeds.bbci.co.uk/news/rss.xml");
 
                 // get the input stream
                 InputStream in = url.openStream();
 
                 // get the output stream
                 FileOutputStream out =
-                        context.openFileOutput("CBC", Context.MODE_PRIVATE);
+                        context.openFileOutput("BBC", Context.MODE_PRIVATE);
 
                 // read input and write output
                 byte[] buffer = new byte[1024];
@@ -103,15 +103,15 @@ public class FileIO {
                 in.close();
             }
             //global file maker
-            if (sharedpreferences.getBoolean("global_news", true)) {
-                URL url = new URL("http://globalnews.ca/feed/");
+            if (sharedpreferences.getBoolean("cbs_news", true)) {
+                URL url = new URL("http://www.cbsnews.com/latest/rss/main");
 
                 // get the input stream
                 InputStream in = url.openStream();
 
                 // get the output stream
                 FileOutputStream out =
-                        context.openFileOutput("GLOBAL", Context.MODE_PRIVATE);
+                        context.openFileOutput("CBS", Context.MODE_PRIVATE);
 
                 // read input and write output
                 byte[] buffer = new byte[1024];
@@ -180,7 +180,7 @@ public class FileIO {
                 ctv_feed.setSource("CTV");
                 feeds.add(ctv_feed);
             }
-            if (sharedpreferences.getBoolean("cbc_news", true)) {
+            if (sharedpreferences.getBoolean("bbc_news", true)) {
                 // get the XML reader
                 SAXParserFactory factory = SAXParserFactory.newInstance();
                 SAXParser parser = factory.newSAXParser();
@@ -191,18 +191,18 @@ public class FileIO {
                 xmlreader.setContentHandler(theRssHandler);
 
                 // read the file from internal storage
-                FileInputStream in = context.openFileInput("CBC");
+                FileInputStream in = context.openFileInput("BBC");
 
                 // parse the data
                 InputSource is = new InputSource(in);
                 xmlreader.parse(is);
 
                 // set the feed in the activity
-                RSSFeed cbc_feed = theRssHandler.getFeed();
-                cbc_feed.setSource("CBC");
-                feeds.add(cbc_feed);
+                RSSFeed bbc_feed = theRssHandler.getFeed();
+                bbc_feed.setSource("BBC");
+                feeds.add(bbc_feed);
             }
-            if (sharedpreferences.getBoolean("global_news", true)) {
+            if (sharedpreferences.getBoolean("cbs_news", true)) {
                 // get the XML reader
                 SAXParserFactory factory = SAXParserFactory.newInstance();
                 SAXParser parser = factory.newSAXParser();
@@ -213,16 +213,16 @@ public class FileIO {
                 xmlreader.setContentHandler(theRssHandler);
 
                 // read the file from internal storage
-                FileInputStream in = context.openFileInput("GLOBAL");
+                FileInputStream in = context.openFileInput("CBS");
 
                 // parse the data
                 InputSource is = new InputSource(in);
                 xmlreader.parse(is);
 
                 // set the feed in the activity
-                RSSFeed global_feed = theRssHandler.getFeed();
-                global_feed.setSource("GLOBAL");
-                feeds.add(global_feed);
+                RSSFeed cbs_feed = theRssHandler.getFeed();
+                cbs_feed.setSource("CBS");
+                feeds.add(cbs_feed);
             }
             return feeds;
         }
