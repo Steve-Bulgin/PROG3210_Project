@@ -7,7 +7,7 @@ Main
 News Item
 
 ![News Item](/screencaps/browser_launch.png) <br/>
-Browser Launch
+
 
 ## To Do
 
