@@ -10,4 +10,11 @@
         android:text="About"
         android:id="@+id/textView2"
         android:textColor="#FFFFFF" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This was a project concieved by Stephen Nagel and Steven Bulgin to demonstrate concepts learn in PROG3210: Mobile Applications II class"
+        android:id="@+id/textView"
+        android:textColor="#FFF" />
 </LinearLayout>
