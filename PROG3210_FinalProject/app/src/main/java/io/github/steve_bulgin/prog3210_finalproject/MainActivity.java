@@ -34,7 +34,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
-
+import android.database.*;
 public class MainActivity extends AppCompatActivity {
 
     //Variables
@@ -47,8 +47,9 @@ public class MainActivity extends AppCompatActivity {
     private HashMap items;
 
     //trying to get access to the insertStory function.
-    databaseHandler db = new databaseHandler(this);
-    
+    SQLiteDatabase db;
+    SQLiteOpenHelper dbHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
 
         listViewNews = (ListView) findViewById(R.id.listViewNews);
         //lstNews.setOnClickListener(this);
+
+       newsReaderDB db = new newsReaderDB(this);
 
 
 

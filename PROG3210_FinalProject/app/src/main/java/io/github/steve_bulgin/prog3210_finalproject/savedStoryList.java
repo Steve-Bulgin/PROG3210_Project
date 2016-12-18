@@ -51,28 +51,13 @@ public class savedStoryList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_saved_story_list);
+       newsReaderDB db = new newsReaderDB(this);
 
-        //android.app.ActionBar actionBar = getActionBar();
-        //actionBar.setDisplayShowHomeEnabled(true);
-        //actionBar.setIcon(R.mipmap.ic_launcher);
 
         listViewNews = (ListView) findViewById(R.id.listViewNews);
-        //lstNews.setOnClickListener(this);
-
-
 
         io = new FileIO(getApplicationContext());
-
-
-//        sharedpreferences = getSharedPreferences(pref_file, Context.MODE_PRIVATE);
-//
-//        if (sharedpreferences.getBoolean("cnn_news", true)) {
-//            Toast.makeText(getApplicationContext(), "CNN ON", Toast.LENGTH_SHORT).show();
-//        }
-//        else if (!sharedpreferences.getBoolean("cnn_news", false)) {
-//            Toast.makeText(getApplicationContext(), "CNN OFF", Toast.LENGTH_SHORT).show();
-//        }
 
         listViewNews.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
             @Override
@@ -87,7 +72,6 @@ public class savedStoryList extends AppCompatActivity {
                 DateFormat inputFormat = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
 
                 String inputText = feed.getPubDate();
-
 
                 try {
                     date = inputFormat.parse(inputText);
@@ -108,8 +92,6 @@ public class savedStoryList extends AppCompatActivity {
         });
 
 
-        //creates the database
-        //DatabaseUtils.createDbFromSqlStatements(,"newsReaderdb", newsReaderDB.DB_VERSION, newsReaderDB.CREATE_newsReader_TABLE);
     }
 
     @Override
@@ -156,6 +138,7 @@ public class savedStoryList extends AppCompatActivity {
         if (feeds == null) {
             Toast.makeText(getApplicationContext(), "Feed is null", Toast.LENGTH_SHORT).show();
         }
+        newsReaderDB db = new newsReaderDB(this);
 
         ArrayList<HashMap<String, String>> data =
                 new ArrayList<HashMap<String, String>>();
@@ -180,13 +163,15 @@ public class savedStoryList extends AppCompatActivity {
             String dateOutput = outputFormat.format(date);
 
 
-            for (RSSItem item : items) {
+            /*for (RSSItem item : items) {
                 HashMap<String, String> map = new HashMap<String, String>();
                 map.put("source", feed.getSource());
                 map.put("date", dateOutput); //map.put("date", item.getPubDateFormatted());
                 map.put("title", item.getTitle());
                 data.add(map);
-            }
+            }*/
+
+
         }
 
 
