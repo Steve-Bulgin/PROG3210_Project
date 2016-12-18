@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   FileName: AndroidManifest.xml
   Purpose: Purpose
   Revision History
@@ -18,21 +17,26 @@
         android:icon="@mipmap/ic_launcher"
         android:label="PROG3210 Newsreader"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
-        <activity android:name=".MainActivity" android:label="Main">
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="Main">
             <intent-filter android:label="Newsreader">
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="io.github.steve_bulgin.prog3210_finalproject.SettingsActivity" android:label="Settings">
-        </activity>
-        <activity android:name="io.github.steve_bulgin.prog3210_finalproject.AboutActivity" android:label="About">
-        </activity>
-        <activity android:name="io.github.steve_bulgin.prog3210_finalproject.ItemActivity" android:label="News Item">
-        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="Settings" />
+        <activity
+            android:name=".AboutActivity"
+            android:label="About" />
+        <activity
+            android:name=".ItemActivity"
+            android:label="News Item" />
+        <activity android:name=".savedStoryList"></activity>
     </application>
 
 </manifest>

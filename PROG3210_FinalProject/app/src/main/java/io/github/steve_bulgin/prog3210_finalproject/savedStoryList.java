@@ -1,5 +1,7 @@
 package io.github.steve_bulgin.prog3210_finalproject;
 
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
 //<<<<<<< HEAD
@@ -35,9 +37,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class MainActivity extends AppCompatActivity {
+public class savedStoryList extends AppCompatActivity {
 
-    //Variables
     SharedPreferences sharedpreferences;
     private static final String pref_file = "pref_file";
     private RSSFeed feed;
@@ -46,9 +47,6 @@ public class MainActivity extends AppCompatActivity {
     private ListView listViewNews;
     private HashMap items;
 
-    //trying to get access to the insertStory function.
-    databaseHandler db = new databaseHandler(this);
-    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         io = new FileIO(getApplicationContext());
-        new DownloadFeed().execute();
+
 
 //        sharedpreferences = getSharedPreferences(pref_file, Context.MODE_PRIVATE);
 //
@@ -110,7 +108,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
+        //creates the database
+        //DatabaseUtils.createDbFromSqlStatements(,"newsReaderdb", newsReaderDB.DB_VERSION, newsReaderDB.CREATE_newsReader_TABLE);
     }
 
     @Override
@@ -134,19 +133,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    class DownloadFeed extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected Void doInBackground(Void... params) {
-            io.downloadFile();
-            return null;
-        }
 
-        @Override
-        protected void onPostExecute(Void result) {
-            Log.d("News reader", "Feed downloaded");
-            new ReadFeed().execute();
-        }
-    }
 
     class ReadFeed extends AsyncTask<Void, Void, Void> {
         @Override
@@ -161,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("News reader", "Feed read");
 
             // update the display for the activity
-            MainActivity.this.updateDisplay();
+            savedStoryList.this.updateDisplay();
         }
     }
 
@@ -217,5 +204,3 @@ public class MainActivity extends AppCompatActivity {
         Log.d("News reader", "Feed displayed");
     }
 }
-
-

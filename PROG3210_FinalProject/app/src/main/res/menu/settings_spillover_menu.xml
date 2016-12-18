@@ -4,6 +4,9 @@
     <item android:id="@+id/menu_main"
         android:title="Main"
         app:showAsAction="never" />
+    <item android:id="@+id/menu_savedStories"
+        android:title="Saved Stories"
+        app:showAsAction="never" />
     <item android:id="@+id/menu_about"
         android:title="About"
         app:showAsAction="never" />

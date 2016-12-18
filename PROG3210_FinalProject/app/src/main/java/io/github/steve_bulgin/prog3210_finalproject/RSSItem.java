@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class RSSItem {
 
-
+    private Integer id =null;
     private String title = null;
     private String description = null;
     private String link = null;
@@ -21,7 +21,9 @@ public class RSSItem {
     private SimpleDateFormat dateInFormat =
             new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss Z");
 
+    public void setId(Integer id) { this.id = id;}
 
+    public Integer getId() { return id; }
 
     public void setSource(String source)     {
         this.source = source;
@@ -77,3 +79,4 @@ public class RSSItem {
     }
 
 }
+

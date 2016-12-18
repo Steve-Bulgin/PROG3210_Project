@@ -4,6 +4,7 @@
   Purpose: Spillover menu items
   Revision History
    		Steven Bulgin, 2016.11.30: Created
+   		steve nagel, aded saved stories link
 -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="schemas.android.com/tools"
@@ -11,6 +12,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_settings"
         android:title="Settings"
+        app:showAsAction="never" />
+    <item android:id="@+id/menu_savedStories"
+        android:title="Saved Stories"
         app:showAsAction="never" />
     <item android:id="@+id/menu_about"
         android:title="About"

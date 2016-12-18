@@ -30,7 +30,6 @@ public class FileIO {
     }
 
 
-
     public void downloadFile() {
 
         SharedPreferences sharedpreferences = context.getSharedPreferences("pref_file", Context.MODE_PRIVATE);

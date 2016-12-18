@@ -9,12 +9,15 @@ import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Button;
+
 
 public class ItemActivity extends AppCompatActivity implements View.OnClickListener {
 
     //Variables
     private TextView lblHeadline, lblSource, lblDate, lblDescription, lblLink;
-
+    private Button btnSaveItem;
+    RSSItem story = new RSSItem();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,9 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
 
         lblLink.setOnClickListener(this);
 
+        btnSaveItem = (Button) findViewById(R.id.btnSaveItem);
+
+
 
         Intent intent = getIntent();
         lblHeadline.setText(intent.getStringExtra("title"));
@@ -41,6 +47,7 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
         SpannableString spanString = new SpannableString(intent.getStringExtra("link"));
         spanString.setSpan(new UnderlineSpan(), 0, spanString.length(), 0);
         lblLink.setText(spanString);
+
 
     }
 
@@ -55,5 +62,18 @@ public class ItemActivity extends AppCompatActivity implements View.OnClickListe
 
         Intent viewIntent = new Intent(Intent.ACTION_VIEW, viewUri);
         startActivity(viewIntent);
+
+       if(R.id.btnSaveItem){
+           story.setTitle(lblHeadline.getText().toString());
+           story.setDescription(lblDescription.getText().toString());
+           story.setLink(viewUri.toString());
+           story.setSource(lblSource.getText().toString());
+
+
+       }
+
+
     }
+
+
 }
